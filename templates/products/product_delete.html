@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5 mb-5">
+
+<div class="form-card text-center">
+
+<i class="bi bi-exclamation-triangle text-danger mb-3" style="font-size:2.5rem;"></i>
+
+<h2>Mahsulotni o'chirish</h2>
+
+<p class="text-muted">Ishonchingiz komilmi? Bu amalni ortga qaytarib bo'lmaydi.</p>
+
+<form method="POST" class="d-flex justify-content-center gap-2 mt-3">
+
+{% csrf_token %}
+
+<button class="btn btn-danger">
+
+<i class="bi bi-trash me-1"></i>O'chirish
+
+</button>
+
+<a href="{% url 'product_list' %}" class="btn btn-dark">
+Bekor qilish
+</a>
+
+</form>
+
+</div>
+
+</div>
+
+{% endblock %}

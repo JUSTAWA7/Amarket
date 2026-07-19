@@ -1,0 +1,291 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<style>
+
+.profile-page{
+
+    min-height:80vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px 20px;
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #020617,
+        #071a3d,
+        #0f2f63
+    );
+
+}
+
+
+
+/* Profile Card */
+
+.profile-card{
+
+
+    width:420px;
+
+
+    padding:40px;
+
+
+    text-align:center;
+
+
+
+    background:
+
+    rgba(255,255,255,.08);
+
+
+
+    backdrop-filter:blur(20px);
+
+
+
+    border-radius:25px;
+
+
+
+    border:
+
+    1px solid
+
+    rgba(255,255,255,.15);
+
+
+
+    box-shadow:
+
+    0 20px 60px
+
+    rgba(0,0,0,.5);
+
+
+
+    color:white;
+
+
+}
+
+
+
+/* Avatar */
+
+
+.profile-avatar{
+
+
+    width:90px;
+
+    height:90px;
+
+
+    margin:auto;
+
+
+    border-radius:50%;
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:center;
+
+
+    font-size:40px;
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #38bdf8
+    );
+
+
+    box-shadow:
+
+    0 0 30px
+
+    rgba(37,99,235,.6);
+
+
+}
+
+
+
+
+.profile-card h2{
+
+
+    margin-top:25px;
+
+
+    font-weight:800;
+
+
+}
+
+
+
+.username{
+
+    color:#38bdf8;
+
+}
+
+
+
+
+.email{
+
+
+    color:#cbd5e1;
+
+
+    margin-bottom:30px;
+
+
+}
+
+
+
+
+.order-btn{
+
+
+    width:100%;
+
+
+    padding:13px;
+
+
+    border-radius:14px;
+
+
+    border:none;
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #1e40af
+    );
+
+
+    color:white;
+
+
+    font-weight:700;
+
+
+    text-decoration:none;
+
+
+    display:block;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.order-btn:hover{
+
+
+    transform:translateY(-3px);
+
+
+    color:white;
+
+
+    box-shadow:
+
+    0 15px 30px
+
+    rgba(37,99,235,.5);
+
+
+}
+
+
+</style>
+
+
+
+
+<div class="profile-page">
+
+
+    <div class="profile-card">
+
+
+        <div class="profile-avatar">
+
+            <i class="bi bi-person"></i>
+
+        </div>
+
+
+
+        <h2>
+
+            {{ user.username }}
+
+        </h2>
+
+
+
+        <p class="email">
+
+            {{ user.email }}
+
+        </p>
+
+
+
+
+        <a href="{% url 'order_history' %}"
+
+           class="order-btn">
+
+
+            <i class="bi bi-bag"></i>
+
+            Mening buyurtmalarim
+
+
+        </a>
+
+
+
+    </div>
+
+
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,201 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<div class="container mt-5 mb-5">
+
+
+<h2 class="fw-bold mb-4">
+
+Admin boshqaruv paneli
+
+</h2>
+
+
+
+<div class="row">
+
+
+<div class="col-lg-4 col-md-6 mb-4">
+
+<div class="dashboard-card dashboard-card--a">
+
+<h5>
+<i class="bi bi-box-seam"></i>
+Mahsulotlar soni
+</h5>
+
+<h2>
+
+{{ product_count }}
+
+</h2>
+
+</div>
+
+</div>
+
+
+
+
+<div class="col-lg-4 col-md-6 mb-4">
+
+<div class="dashboard-card dashboard-card--b">
+
+<h5>
+<i class="bi bi-people"></i>
+Foydalanuvchilar soni
+</h5>
+
+<h2>
+
+{{ user_count }}
+
+</h2>
+
+</div>
+
+</div>
+
+
+
+
+<div class="col-lg-4 col-md-6 mb-4">
+
+<div class="dashboard-card dashboard-card--c">
+
+<h5>
+<i class="bi bi-bag-check"></i>
+Buyurtmalar soni
+</h5>
+
+<h2>
+
+{{ order_count }}
+
+</h2>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="premium-card mt-4">
+
+
+<div class="premium-card-header">
+
+<h4 class="mb-0">
+<i class="bi bi-clock-history me-2"></i>
+So'nggi buyurtmalar
+</h4>
+
+</div>
+
+
+
+<div class="table-responsive">
+
+
+<table class="table table-hover">
+
+
+<thead>
+
+<tr>
+
+<th>
+ID
+</th>
+
+<th>
+Foydalanuvchi
+</th>
+
+<th>
+Umumiy summa
+</th>
+
+<th>
+Sana
+</th>
+
+</tr>
+
+</thead>
+
+
+
+<tbody>
+
+
+{% for order in latest_orders %}
+
+
+<tr>
+
+<td>
+#{{ order.id }}
+</td>
+
+
+<td>
+{{ order.user.username }}
+</td>
+
+
+<td>
+${{ order.total_price }}
+</td>
+
+
+<td>
+{{ order.created_at|date:"d.m.Y H:i" }}
+</td>
+
+
+</tr>
+
+
+{% empty %}
+
+
+<tr>
+
+<td colspan="4" class="text-center">
+
+Hozircha buyurtmalar mavjud emas
+
+</td>
+
+</tr>
+
+
+{% endfor %}
+
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+</div>
+
+
+
+
+</div>
+
+
+{% endblock %}

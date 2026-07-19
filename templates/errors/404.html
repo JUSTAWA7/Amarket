@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="error-page">
+
+    <i class="bi bi-compass error-icon"></i>
+
+    <h1 class="display-1 fw-bold text-danger">
+        404
+    </h1>
+
+    <h2>
+        Sahifa topilmadi
+    </h2>
+
+    <p>
+        Kechirasiz, siz qidirayotgan sahifa mavjud emas.
+    </p>
+
+
+    <a href="{% url 'product_list' %}"
+       class="btn btn-primary mt-3">
+
+        <i class="bi bi-house-door me-1"></i>
+        Bosh sahifaga qaytish
+
+    </a>
+
+</div>
+
+{% endblock %}

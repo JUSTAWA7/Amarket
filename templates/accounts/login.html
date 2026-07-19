@@ -1,0 +1,420 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<style>
+
+.login-page{
+
+    min-height:85vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #020617,
+        #071a3d,
+        #0f2f63
+    );
+
+
+    padding:20px;
+
+}
+
+
+
+/* Card */
+
+.login-card{
+
+
+    width:360px;
+
+
+    padding:35px;
+
+
+    background:
+
+    rgba(255,255,255,0.08);
+
+
+    backdrop-filter:blur(20px);
+
+
+    border-radius:22px;
+
+
+    border:
+
+    1px solid
+
+    rgba(255,255,255,.15);
+
+
+
+    box-shadow:
+
+    0 20px 60px
+
+    rgba(0,0,0,.5);
+
+
+    color:white;
+
+}
+
+
+
+/* Title */
+
+
+.login-card h2{
+
+
+    text-align:center;
+
+
+    font-size:26px;
+
+
+    font-weight:800;
+
+
+    margin-bottom:10px;
+
+
+}
+
+
+
+.subtitle{
+
+
+    text-align:center;
+
+
+    color:#cbd5e1;
+
+
+    font-size:14px;
+
+
+    margin-bottom:25px;
+
+}
+
+
+
+
+/* Form */
+
+
+.login-card p{
+
+
+    margin-bottom:15px;
+
+}
+
+
+
+.login-card label{
+
+
+    color:#e2e8f0;
+
+
+    font-size:13px;
+
+
+    display:block;
+
+
+    margin-bottom:5px;
+
+
+}
+
+
+
+.login-card input{
+
+
+    width:100%;
+
+
+    padding:12px 14px;
+
+
+    border:none;
+
+
+    outline:none;
+
+
+    border-radius:12px;
+
+
+    background:
+
+    rgba(255,255,255,.12);
+
+
+
+    color:white;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.login-card input:focus{
+
+
+    background:
+
+    rgba(255,255,255,.18);
+
+
+
+    box-shadow:
+
+    0 0 15px
+
+    rgba(37,99,235,.8);
+
+
+}
+
+
+
+.login-card input::placeholder{
+
+
+    color:#94a3b8;
+
+}
+
+
+
+
+/* Button */
+
+
+.login-btn{
+
+
+    width:100%;
+
+
+    padding:13px;
+
+
+    margin-top:10px;
+
+
+    border:none;
+
+
+    border-radius:12px;
+
+
+    background:
+
+
+    linear-gradient(
+
+        135deg,
+
+        #2563eb,
+
+        #1e40af
+
+    );
+
+
+
+    color:white;
+
+
+    font-size:15px;
+
+
+    font-weight:700;
+
+
+    cursor:pointer;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.login-btn:hover{
+
+
+    transform:translateY(-3px);
+
+
+    box-shadow:
+
+    0 15px 30px
+
+    rgba(37,99,235,.5);
+
+
+}
+
+
+
+/* Register link */
+
+
+.register-text{
+
+
+    text-align:center;
+
+
+    margin-top:22px;
+
+
+    color:#cbd5e1;
+
+
+    font-size:14px;
+
+
+}
+
+
+
+.register-text a{
+
+
+    color:#38bdf8;
+
+
+    text-decoration:none;
+
+
+    font-weight:700;
+
+
+}
+
+
+
+.register-text a:hover{
+
+
+    color:white;
+
+}
+
+
+
+.errorlist{
+
+    color:#f87171;
+
+    font-size:12px;
+
+    list-style:none;
+
+    padding:0;
+
+}
+
+
+
+</style>
+
+
+
+<div class="login-page">
+
+
+    <div class="login-card">
+
+
+        <h2>
+
+            Tizimga kirish
+
+        </h2>
+
+
+        <p class="subtitle">
+
+            Premium Market hisobingizga kiring
+
+        </p>
+
+
+
+
+        <form method="POST">
+
+
+            {% csrf_token %}
+
+
+            {{ form.as_p }}
+
+
+
+            <button class="login-btn"
+                    type="submit">
+
+                Tizimga kirish
+
+            </button>
+
+
+        </form>
+
+
+
+
+        <div class="register-text">
+
+
+            Hisobingiz yo'qmi?
+
+
+            <a href="{% url 'register' %}">
+
+                Ro'yxatdan o'tish
+
+            </a>
+
+
+        </div>
+
+
+
+    </div>
+
+
+</div>
+
+
+
+{% endblock %}
